@@ -1,0 +1,5 @@
+.idea
+env/
+test/
+venv/
+.DS_STORE

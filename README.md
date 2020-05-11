@@ -1,12 +1,8 @@
-====================
-sesam-rest-transform
-====================
+#rest-receiver
+[![Build Status](https://travis-ci.org/sesam-community/oracle-transform.svg?branch=master)](https://travis-ci.org/sesam-community/oracle-transform)
 
-Microservice that calls a URL (with optional payload) and able to store the result in a configurable property.
 
-.. image:: https://travis-ci.org/sesam-community/rest-transform.svg?branch=master
-    :target: https://travis-ci.org/sesam-community/rest-transform
-
+Microservice that handles the sending of entities by using custom (user-created) handlers. 
 
 * Can be used as a sink
 * Customization by adding "handlers"
@@ -114,3 +110,5 @@ curl -s -X POST 'http://localhost:5001/handle_me_this_way' -H "Content-type: app
 ```
 curl -s -XPOST 'http://localhost:5001/handle_me_this_way' -H "Content-type: application/json" -d @sample.json
 ```
+
+Authorization code borrowed from https://github.com/sesam-community/rest-transform

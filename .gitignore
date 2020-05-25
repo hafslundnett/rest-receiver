@@ -3,3 +3,4 @@ env/
 test/
 venv/
 .DS_STORE
+*__pycache__*

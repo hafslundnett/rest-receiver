@@ -11,5 +11,7 @@ WORKDIR /service
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+RUN rm '/usr/local/lib/python3.8/site-packages/werkzeug/debug/shared/jquery.js'
+
 EXPOSE 5000/tcp
 CMD ["python3", "-u", "transform-service.py"]

@@ -9,6 +9,9 @@ from sesamutils import sesam_logger
 from sesamutils.flask import serve
 import handlers
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 app = Flask(__name__)
 
 PORT = int(os.environ.get("PORT", 5001))
@@ -61,7 +64,7 @@ class Oauth2System:
 
 def graceful_death(info):
     logger.critical(info)
-    return Response(response=info)
+    return Response(response=info, status=400)
 
 
 @app.route("/<call_type>", methods=["POST"])
@@ -100,7 +103,7 @@ def receiver(call_type):
         with session_factory.make_session() as s:
             for entity in entities:
                 handler_method(s, url, entity)
-        Response(response={"response": "OK"}, mimetype="application/json", status=200)
+        return Response(response={"response": "OK"}, mimetype="application/json", status=200)
 
     # get entities from request
     request_entities = request.get_json()

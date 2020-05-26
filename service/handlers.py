@@ -37,6 +37,8 @@ def elwin_workorder(s: Session, url: str, entity: dict):
             if type(response_entity) == list:
                 if len(response_entity) == 1:
                     response_entity = response_entity[0]
+                else:
+                    response_entity = {}
             else:
                 response_entity = {}
         except json.JSONDecodeError as e:

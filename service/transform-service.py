@@ -99,7 +99,6 @@ def receiver(call_type):
                 f'Env var {type} missing "HANDLER" or "URL" or "AUTHORIZATION". Value: {type_info}.\n{e}')
         except AttributeError as e:
             return graceful_death(f'handlers.py file missing specified handler: "{handler}". \n{e}')
-
         with session_factory.make_session() as s:
             for entity in entities:
                 handler_method(s, url, entity)
